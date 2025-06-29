@@ -1,0 +1,2 @@
+R:/Projects/EkartFood/ekartfood_user/android/app/.cxx/RelWithDebInfo/5d1676d4/x86_64/CMakeFiles/edit_cache.dir
+R:/Projects/EkartFood/ekartfood_user/android/app/.cxx/RelWithDebInfo/5d1676d4/x86_64/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "R:\\Projects\\EkartFood\\ekartfood_user\\.fvm\\flutter_sdk\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\ratul\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "R:\\Projects\\EkartFood\\ekartfood_user\\android\\app\\.cxx\\RelWithDebInfo\\5d1676d4\\x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\ratul\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "R:\\Projects\\EkartFood\\ekartfood_user\\android\\app\\.cxx\\RelWithDebInfo\\5d1676d4\\x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

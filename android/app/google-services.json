@@ -1,0 +1,119 @@
+{
+  "project_info": {
+    "project_number": "168461457671",
+    "firebase_url": "https://ekartfood-1e632-default-rtdb.firebaseio.com",
+    "project_id": "ekartfood-1e632",
+    "storage_bucket": "ekartfood-1e632.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168461457671:android:1e4a85d2186cd8f208cda2",
+        "android_client_info": {
+          "package_name": "com.ekartbd.ekartfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168461457671-mvuq4u9rkcbrnbbnitc54hcuk7vu2jph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrOJdcSux9KZbFzEFMZRGRJU_2aN3xZ_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168461457671-6fbqkeu793uuj22595cd6l7fektcf608.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "168461457671-98ghft413amim714k6gvol8l6b8c0q6q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kaiserpay.agent"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168461457671:android:ef91bddc30eeb6a008cda2",
+        "android_client_info": {
+          "package_name": "com.ekartbd.estore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168461457671-mvuq4u9rkcbrnbbnitc54hcuk7vu2jph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrOJdcSux9KZbFzEFMZRGRJU_2aN3xZ_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168461457671-6fbqkeu793uuj22595cd6l7fektcf608.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "168461457671-98ghft413amim714k6gvol8l6b8c0q6q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kaiserpay.agent"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168461457671:android:58bf7833e6cf540208cda2",
+        "android_client_info": {
+          "package_name": "com.ekartbd.rider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168461457671-mvuq4u9rkcbrnbbnitc54hcuk7vu2jph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrOJdcSux9KZbFzEFMZRGRJU_2aN3xZ_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168461457671-6fbqkeu793uuj22595cd6l7fektcf608.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "168461457671-98ghft413amim714k6gvol8l6b8c0q6q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kaiserpay.agent"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
