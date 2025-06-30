@@ -169,7 +169,7 @@ class _SignInViewState extends State<SignInView> {
   }
   
   void _otpLogin(AuthController authController, String countryDialCode, CentralizeLoginType loginType) async {
-    String phone = _phoneController.text.trim();
+    String phone = _phoneController.text.trim().startsWith('0') ? _phoneController.text.trim().substring(1) : _phoneController.text.trim();
     String numberWithCountryCode = countryDialCode+phone;
     PhoneValid phoneValid = await CustomValidator.isPhoneValid(numberWithCountryCode);
     numberWithCountryCode = phoneValid.phone;

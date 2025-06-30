@@ -160,7 +160,7 @@ class TripDetailsModel {
     estimatedTripEndTime = json['estimated_trip_end_time'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    pickupZoneId = json['pickup_zone_id'];
+    pickupZoneId = int.tryParse(json['pickup_zone_id'].toString()) ?? 0;
     attachment = json['attachment'];
     userInfo = json['user_info'] != null
         ? UserInfo.fromJson(json['user_info'])

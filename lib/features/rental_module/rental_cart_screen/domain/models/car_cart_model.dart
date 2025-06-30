@@ -63,7 +63,7 @@ class Carts {
     vehicleId = json['vehicle_id'];
     moduleId = json['module_id'];
     quantity = json['quantity'];
-    isGuest = json['is_guest'];
+    isGuest = int.tryParse(json['is_guest']?.toString() ?? '0');
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     vehicle = json['vehicle'] != null
@@ -529,7 +529,7 @@ class UserData {
     estimatedHours = json['estimated_hours']?.toDouble();
     distance = json['distance']?.toDouble();
     totalCartPrice = json['total_cart_price']?.toDouble();
-    destinationTime = json['destination_time']?.toDouble();
+    destinationTime = double.tryParse(json['destination_time']?.toString() ?? '0');
     isGuest = json['is_guest'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
