@@ -177,7 +177,7 @@ class TaxiVendorModel {
     deliveryTime = json['delivery_time'];
     veg = json['veg'];
     nonVeg = json['non_veg'];
-    orderCount = json['order_count'];
+    orderCount = int.tryParse(json['order_count'].toString()) ?? 0;
     totalOrder = json['total_order'];
     moduleId = json['module_id'];
     orderPlaceToScheduleInterval = json['order_place_to_schedule_interval'];
