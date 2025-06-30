@@ -119,7 +119,9 @@ class VehicleModel {
     updatedAt = json['updated_at'];
     zoneId = json['zone_id'];
     vehicleIdentitiesCount = int.tryParse(json['total_vehicle_count'].toString()) ?? 0;
-    totalVehicles = json['total_vehicles'];
+    totalVehicles = json['total_vehicles'].toString().isNotEmpty
+        ? int.tryParse(json['total_vehicles'].toString())
+        : 0;
     thumbnailFullUrl = json['thumbnail_full_url'];
     imagesFullUrl = json['images_full_url'].cast<String>();
     if (json['documents_full_url'] != null) {

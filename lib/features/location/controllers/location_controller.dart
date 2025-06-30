@@ -218,14 +218,14 @@ class LocationController extends GetxController implements GetxService {
         );
       } else {
         _pickPosition = Position(
-          latitude: position!.target.latitude, longitude: position.target.longitude, timestamp: DateTime.now(),
+          latitude: position?.target.latitude ?? 22.6248, longitude: position?.target.longitude ?? 89.5246, timestamp: DateTime.now(),
           heading: 1, accuracy: 1, altitude: 1, speedAccuracy: 1, speed: 1, altitudeAccuracy: 1, headingAccuracy: 1,
         );
       }
-      ZoneResponseModel responseModel = await getZone(position.target.latitude.toString(), position.target.longitude.toString(), true);
+      ZoneResponseModel responseModel = await getZone(position?.target.latitude.toString(), position?.target.longitude.toString(), true);
       _buttonDisabled = !responseModel.isSuccess;
       if (_changeAddress) {
-        String addressFromGeocode = await getAddressFromGeocode(LatLng(position.target.latitude, position.target.longitude));
+        String addressFromGeocode = await getAddressFromGeocode(LatLng(position?.target.latitude ?? 22.6248, position?.target.longitude ?? 89.5246));
         fromAddress ? _address = addressFromGeocode : _pickAddress = addressFromGeocode;
       } else {
         _changeAddress = true;

@@ -195,7 +195,7 @@ class NotificationHelper {
           await showBigTextNotification(title, body!, orderID, notificationBody, fln);
         }
       }else {
-        await showBigTextNotification(title, body!, orderID, notificationBody, fln);
+        await showBigTextNotification(title, body ?? "Hello from EkartFood", orderID, notificationBody, fln);
       }
     }
   }

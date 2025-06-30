@@ -17,7 +17,7 @@ class CheckoutRepository implements CheckoutRepositoryInterface {
     int mostDmTipAmount = 0;
     Response response = await apiClient.getData(AppConstants.mostTipsUri);
     if (response.statusCode == 200) {
-      mostDmTipAmount = response.body['most_tips_amount'];
+      mostDmTipAmount = int.tryParse(response.body['most_tips_amount'].toString()) ?? 0;
     }
     return mostDmTipAmount;
   }
@@ -93,15 +93,16 @@ class CheckoutRepository implements CheckoutRepositoryInterface {
     return await _getOfflineMethodList();
   }
 
-  Future<List<OfflineMethodModel>?> _getOfflineMethodList() async {
-    List<OfflineMethodModel>? offlineMethodList;
-    Response response = await apiClient.getData(AppConstants.offlineMethodListUri);
-    if (response.statusCode == 200) {
-      offlineMethodList = [];
-      response.body.forEach((method) => offlineMethodList!.add(OfflineMethodModel.fromJson(method)));
-    }
-    return offlineMethodList;
+Future<List<OfflineMethodModel>> _getOfflineMethodList() async {
+  final List<OfflineMethodModel> offlineMethodList = [];
+  Response response = await apiClient.getData(AppConstants.offlineMethodListUri);
+  if (response.statusCode == 200 && !response.body.isEmpty) {
+    (response.body as List).forEach((method) {
+      offlineMethodList.add(OfflineMethodModel.fromJson(method));
+    });
   }
+  return offlineMethodList;
+}
 
   @override
   Future update(Map<String, dynamic> body, int? id) {
