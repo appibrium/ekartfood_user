@@ -43,6 +43,8 @@ class _PaginatedListViewState extends State<PaginatedListView> {
   }
 
   void _paginate() async {
+    if (widget.totalSize == null || _offset == null) return;
+
     int pageSize = (widget.totalSize! / 10).ceil();
     if (_offset! < pageSize && !_offsetList.contains(_offset!+1)) {
 
