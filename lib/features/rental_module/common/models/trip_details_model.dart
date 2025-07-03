@@ -777,7 +777,7 @@ class Provider {
       rating = json['rating'].cast<int>();
     }
     phone = json['phone'];
-    totalVehicles = json['total_vehicles'];
+    totalVehicles = int.tryParse(json['total_vehicles'].toString()) ?? 0;
     avgRating = json['avg_rating']?.toDouble();
     ratingCount = json['rating_count'];
     gstStatus = json['gst_status'];

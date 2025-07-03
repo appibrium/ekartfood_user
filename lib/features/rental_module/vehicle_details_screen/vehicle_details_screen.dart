@@ -117,9 +117,16 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
             discount = vehicle.discountPrice ?? 0;
             discountType = vehicle.discountType ?? 'percent';
 
-            distanceWiseDiscount = PriceConverter.calculation(vehicle.distancePrice!, discount, discountType, 1);
-            hourlyDiscount = PriceConverter.calculation(vehicle.hourlyPrice!, discount, discountType, 1);
-
+            if(vehicle.distancePrice != null) {
+              distanceWiseDiscount = PriceConverter.calculation(vehicle.distancePrice!, discount, discountType, 1);
+            } else {
+              distanceWiseDiscount = 0;
+            }
+            if(vehicle.hourlyPrice != null) {
+              hourlyDiscount = PriceConverter.calculation(vehicle.hourlyPrice!, discount, discountType, 1);
+            } else {
+              hourlyDiscount = 0;
+            }
           }
 
           return vehicle != null ? Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
