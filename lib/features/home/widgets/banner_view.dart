@@ -78,12 +78,16 @@ class BannerView extends StatelessWidget {
                       }else if(bannerDataList[index] is BasicCampaignModel) {
                         BasicCampaignModel campaign = bannerDataList[index];
                         Get.toNamed(RouteHelper.getBasicCampaignRoute(campaign));
-                      }else {
-                        String url = bannerDataList[index];
-                        if (await canLaunchUrlString(url)) {
-                          await launchUrlString(url, mode: LaunchMode.externalApplication);
-                        }else {
-                          showCustomSnackBar('unable_to_found_url'.tr);
+                      } else {
+                        final dynamic urlCandidate = bannerDataList[index];
+                        if (urlCandidate is String && urlCandidate.isNotEmpty) {
+                          if (await canLaunchUrlString(urlCandidate)) {
+                            await launchUrlString(urlCandidate, mode: LaunchMode.externalApplication);
+                          } else {
+                            showCustomSnackBar('unable_to_found_url'.tr);
+                          }
+                        } else {
+                          showCustomSnackBar('invalid_url_data'.tr);
                         }
                       }
                     },

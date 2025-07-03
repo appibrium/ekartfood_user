@@ -236,7 +236,11 @@ class SocialLoginWidget extends StatelessWidget {
 
   void _googleLogin(GoogleSignIn googleSignIn) async {
     googleSignIn.signOut();
-    GoogleSignInAccount googleAccount = (await googleSignIn.signIn())!;
+    GoogleSignInAccount? googleAccount = await googleSignIn.signIn();
+    if (googleAccount == null) {
+      showCustomSnackBar('Google sign-in was cancelled or failed.');
+      return;
+    }
     GoogleSignInAuthentication auth = await googleAccount.authentication;
 
     SocialLogInBody googleBodyModel = SocialLogInBody(

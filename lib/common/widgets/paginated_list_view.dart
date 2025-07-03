@@ -43,7 +43,14 @@ class _PaginatedListViewState extends State<PaginatedListView> {
   }
 
   void _paginate() async {
-    if (widget.totalSize == null || _offset == null) return;
+    if (widget.totalSize == null) {
+      debugPrint('Paginate error: widget.totalSize is null');
+      return;
+    }
+    if (_offset == null) {
+      debugPrint('Paginate error: _offset is null');
+      return;
+    }
 
     int pageSize = (widget.totalSize! / 10).ceil();
     if (_offset! < pageSize && !_offsetList.contains(_offset!+1)) {
@@ -72,7 +79,7 @@ class _PaginatedListViewState extends State<PaginatedListView> {
     if(widget.offset != null) {
       _offset = widget.offset;
       _offsetList = [];
-      for(int index=1; index<=widget.offset!; index++) {
+      for(int index=1; index<=((widget.offset ?? 0)); index++) {
         _offsetList.add(index);
       }
     }

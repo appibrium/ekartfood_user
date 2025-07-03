@@ -57,7 +57,7 @@ class AddressWidget extends StatelessWidget {
                     const SizedBox(height: Dimensions.paddingSizeExtraSmall),
 
                     Text(
-                      address!.address!,
+                      address?.address ?? '',
                       style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall, color: Theme.of(context).disabledColor),
                       maxLines: 1, overflow: TextOverflow.ellipsis,
                     ),
