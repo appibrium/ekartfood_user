@@ -769,38 +769,37 @@ class Provider {
         this.storage});
 
   Provider.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    logo = json['logo'];
-    coverPhoto = json['cover_photo'];
-    if(json['rating'] != null) {
-      rating = json['rating'].cast<int>();
-    }
-    phone = json['phone'];
-    totalVehicles = int.tryParse(json['total_vehicles'].toString()) ?? 0;
-    avgRating = json['avg_rating']?.toDouble();
-    ratingCount = json['rating_count'];
-    gstStatus = json['gst_status'];
-    gstCode = json['gst_code'];
-    chat = json['chat'] == 1;
-    reviewSection = json['reviews_section'];
-    gstCode = json['gst_code'];
-    logoFullUrl = json['logo_full_url'];
-    coverPhotoFullUrl = json['cover_photo_full_url'];
-    metaImageFullUrl = json['meta_image_full_url'];
-    if (json['translations'] != null) {
-      translations = <Translations>[];
-      json['translations'].forEach((v) {
-        translations!.add(Translations.fromJson(v));
-      });
-    }
-    if (json['storage'] != null) {
-      storage = <Storage>[];
-      json['storage'].forEach((v) {
-        storage!.add(Storage.fromJson(v));
-      });
-    }
-  }
+        id = json['id'];
+        name = json['name'];
+        logo = json['logo'];
+        coverPhoto = json['cover_photo'];
+        if(json['rating'] != null) {
+          rating = json['rating'].cast<int>();
+        }
+        phone = json['phone'];
+        totalVehicles = int.tryParse(json['total_vehicles'].toString()) ?? 0;
+        avgRating = json['avg_rating'] != null ? double.tryParse(json['avg_rating'].toString()) : null;
+        ratingCount = json['rating_count'];
+        gstStatus = json['gst_status'] is bool ? json['gst_status'] : json['gst_status'] == 1;
+        gstCode = json['gst_code'];
+        chat = json['chat'] is bool ? json['chat'] : json['chat'] == 1;
+        reviewSection = json['reviews_section'] is bool ? json['reviews_section'] : json['reviews_section'] == 1;
+        logoFullUrl = json['logo_full_url'];
+        coverPhotoFullUrl = json['cover_photo_full_url'];
+        metaImageFullUrl = json['meta_image_full_url'];
+        if (json['translations'] != null) {
+          translations = <Translations>[];
+          json['translations'].forEach((v) {
+            translations!.add(Translations.fromJson(v));
+          });
+        }
+        if (json['storage'] != null) {
+          storage = <Storage>[];
+          json['storage'].forEach((v) {
+            storage!.add(Storage.fromJson(v));
+          });
+        }
+      }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
