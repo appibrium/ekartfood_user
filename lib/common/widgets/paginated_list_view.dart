@@ -47,29 +47,31 @@ class _PaginatedListViewState extends State<PaginatedListView> {
       debugPrint('Paginate error: widget.totalSize is null');
       return;
     }
-    if (_offset == null) {
+    else if (_offset == null) {
       debugPrint('Paginate error: _offset is null');
       return;
     }
 
-    int pageSize = (widget.totalSize! / 10).ceil();
-    if (_offset! < pageSize && !_offsetList.contains(_offset!+1)) {
+   else{
+      int pageSize = (widget.totalSize! / 10).ceil();
+      if (_offset! < pageSize && !_offsetList.contains(_offset!+1)) {
 
-      setState(() {
-        _offset = _offset! + 1;
-        _offsetList.add(_offset);
-        _isLoading = true;
-      });
-      await widget.onPaginate(_offset);
-      setState(() {
-        _isLoading = false;
-      });
-
-    }else {
-      if(_isLoading) {
+        setState(() {
+          _offset = _offset! + 1;
+          _offsetList.add(_offset);
+          _isLoading = true;
+        });
+        await widget.onPaginate(_offset);
         setState(() {
           _isLoading = false;
         });
+
+      }else {
+        if(_isLoading) {
+          setState(() {
+            _isLoading = false;
+          });
+        }
       }
     }
   }
@@ -79,10 +81,11 @@ class _PaginatedListViewState extends State<PaginatedListView> {
     if(widget.offset != null) {
       _offset = widget.offset;
       _offsetList = [];
-      for(int index=1; index<=((widget.offset ?? 0)); index++) {
+      for(int index=1; index<=widget.offset!; index++) {
         _offsetList.add(index);
       }
     }
+
 
     return Column(children: [
 
