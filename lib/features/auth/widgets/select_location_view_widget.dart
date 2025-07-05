@@ -49,6 +49,19 @@ class _SelectLocationViewWidgetState extends State<SelectLocationViewWidget> {
   bool isSelected = false;
 
   @override
+  void initState() {
+    super.initState();
+    final config = Get.find<SplashController>().configModel;
+    _cameraPosition = CameraPosition(
+      target: LatLng(
+        double.parse(config?.defaultLocation?.lat ?? '22.563890'),
+        double.parse(config?.defaultLocation?.lng ?? '89.331047'),
+      ),
+      zoom: 16,
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GetBuilder<StoreRegistrationController>(builder: (storeRegController) {
 

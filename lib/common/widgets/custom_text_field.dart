@@ -97,11 +97,12 @@ class CustomTextFieldState extends State<CustomTextField> {
   @override
   void initState() {
     super.initState();
-    widget.focusNode?.addListener(() {
-      setState(() {});
-    });
+    if (widget.focusNode != null) {
+      widget.focusNode?.addListener(() {
+        setState(() {});
+      });
+    }
   }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -165,21 +166,19 @@ class CustomTextFieldState extends State<CustomTextField> {
               errorStyle: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall),
 
               label: widget.showLabelText ? Text.rich(TextSpan(children: [
-
                 TextSpan(
                   text: widget.labelText ?? '',
                   style: robotoRegular.copyWith(
                     fontSize: widget.labelTextSize ?? Dimensions.fontSizeLarge,
-                    color: ((widget.focusNode?.hasFocus == true || widget.controller!.text.isNotEmpty ) &&  widget.isEnabled) ? Theme.of(context).textTheme.bodyLarge?.color :  Theme.of(context).hintColor.withValues(alpha: .75),
+                    color: ((widget.focusNode?.hasFocus == true || (widget.controller?.text.isNotEmpty ?? false)) && widget.isEnabled)
+                        ? Theme.of(context).textTheme.bodyLarge?.color
+                        : Theme.of(context).hintColor.withValues(alpha: .75),
                   ),
                 ),
-
                 if(widget.required && widget.labelText != null)
                   TextSpan(text : ' *', style: robotoRegular.copyWith(color: Theme.of(context).colorScheme.error, fontSize: Dimensions.fontSizeLarge)),
-
                 if(widget.isEnabled == false)
                   TextSpan(text: widget.fromUpdateProfile ? ' (${'non_changeable'.tr})' : ' (${'non_changeable'.tr})', style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeLarge, color: Theme.of(context).colorScheme.error)),
-
               ])) : null,
 
               prefixIcon: (widget.isPhone || widget.countryDialCode != null) ? SizedBox(width: 95, child: Row(children: [

@@ -114,13 +114,15 @@ class DashboardScreenState extends State<DashboardScreen> {
     active = await Get.find<LocationController>().checkLocationActive();
     if(widget.fromSplash && Get.find<LocationController>().showLocationSuggestion && active) {
       Future.delayed(const Duration(seconds: 1), () {
-        showModalBottomSheet(
-          context: Get.context!, isScrollControlled: true, backgroundColor: Colors.transparent,
-          builder: (con) => const AddressBottomSheetWidget(),
-        ).then((value) {
-          Get.find<LocationController>().showSuggestedLocation(false);
-          setState(() {});
-        });
+        if (Get.context != null) {
+          showModalBottomSheet(
+            context: Get.context!, isScrollControlled: true, backgroundColor: Colors.transparent,
+            builder: (con) => const AddressBottomSheetWidget(),
+          ).then((value) {
+            Get.find<LocationController>().showSuggestedLocation(false);
+            setState(() {});
+          });
+        }
       });
     }
   }
