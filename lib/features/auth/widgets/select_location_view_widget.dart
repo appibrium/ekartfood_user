@@ -400,10 +400,14 @@ class _SelectLocationViewWidgetState extends State<SelectLocationViewWidget> {
     _polygons = HashSet<Polygon>.of(polygonList);
 
     Future.delayed( const Duration(milliseconds: 500),(){
-      _mapController?.animateCamera(CameraUpdate.newLatLngBounds(
-        boundsFromLatLngList(zoneLatLongList),
-        ResponsiveHelper.isDesktop(Get.context) ? 30 : 100.5,
-      ));
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _mapController?.animateCamera(
+          CameraUpdate.newLatLngBounds(
+            boundsFromLatLngList(zoneLatLongList),
+            ResponsiveHelper.isDesktop(Get.context) ? 30 : 20,
+          ),
+        );
+      });
     });
 
     setState(() {});
