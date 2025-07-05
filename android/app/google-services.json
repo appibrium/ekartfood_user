@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "168461457671-ve83r9fhdh80ilbkosa3t82uok30ml03.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ekartbd.ekartfood",
+            "certificate_hash": "460daaf65f36b07742b6f1ac9aef42fb063ece0a"
+          }
+        },
+        {
           "client_id": "168461457671-mvuq4u9rkcbrnbbnitc54hcuk7vu2jph.apps.googleusercontent.com",
           "client_type": 3
         }
